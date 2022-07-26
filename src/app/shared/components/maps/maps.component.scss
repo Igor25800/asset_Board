@@ -1,0 +1,14 @@
+.full{
+  width: 600px;
+  height: 600px;
+}
+
+@media (max-width: 650px) {
+  section{
+    .full{
+      width: 400px;
+      height: 400px;
+    }
+  }
+}
+

@@ -1,0 +1,18 @@
+<div class="w-100 d-flex" *ngIf="arrayAsset$ | async as arrayAsset">
+  <app-maps
+    [array]="arrayAsset"
+    [selectedAsset]="selectedAsset"
+  ></app-maps>
+ <div class="w-100">
+   <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="addAsset()">add</button>
+   <app-table class="w-100"
+              [arrayAsset]="arrayAsset"
+              [name]="addBtn"
+              (eventAsset)="eventAsset($event)"
+              (changesAsset)="changesAsset($event)"
+              (eventDeleteAsset)="eventDeleteAsset($event)"
+              (eventName)="eventName($event)"
+              (add)="addAsset($event)"
+   ></app-table>
+ </div>
+</div>

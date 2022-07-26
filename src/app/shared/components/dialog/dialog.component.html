@@ -1,0 +1,45 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form  [formGroup]="assetForm">
+          <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-10">
+              <input formControlName="name" type="text" class="form-control" id="name" required>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="lat" class="col-sm-2 col-form-label">Type:</label>
+            <div class="col-sm-10">
+              <select formControlName="type" class="form-select" aria-label="Default select example">
+                <option selected>Виберіть Значення</option>
+                <option *ngFor="let type of typeArray" [value]="type">{{type}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="lat" class="col-sm-2 col-form-label">lat:</label>
+            <div class="col-sm-10">
+              <input formControlName="lat" type="number" class="form-control" id="lat">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="lng" class="col-sm-2 col-form-label">lng:</label>
+            <div class="col-sm-10">
+              <input formControlName="lng" type="number" class="form-control" id="lng">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="nameBtn === 'Save'? saveBtn(): addBtn()"   type="button" class="btn btn-primary">{{nameBtn}}</button>
+      </div>
+    </div>
+  </div>
+</div>

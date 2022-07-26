@@ -1,0 +1,36 @@
+<ng-container *ngIf="arrayAsset.length;else second">
+  <table class="table w-100">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let item of arrayAsset; let i = index">
+      <tr (click)="activate(i, item)" [class.table-active]="i === index"  >
+        <td>{{item.name}}</td>
+        <td>{{item.type}}</td>
+        <td>
+          <button (click)="$event.stopPropagation(); editAsset(item)"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning">Edit</button>
+        </td>
+        <td>
+          <button (click)="$event.stopPropagation(); deleteAsset(item.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</ng-container>
+<ng-template #second>
+    <h1 class="text-center">Добавте Asset</h1>
+</ng-template>
+<app-dialog
+  [name]="nameBtn"
+  [selected]="selectedAsset"
+  (saveAsset)="saveAsset($event)"
+  (clearAsset)="clearAsset($event)"
+  (addAsset)="addAsset($event)"
+></app-dialog>
